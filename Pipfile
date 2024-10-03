@@ -36,6 +36,9 @@ simpleitk = "*"
 ema-pytorch = "*"
 aim = "*"
 opencv-python-headless = "*"
+scikit-learn = "*"
+totalsegmentator = "*"
+dvclive = "*"
 
 [dev-packages]
 jupyterlab = "*"
