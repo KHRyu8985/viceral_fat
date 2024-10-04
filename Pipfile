@@ -39,6 +39,7 @@ opencv-python-headless = "*"
 scikit-learn = "*"
 totalsegmentator = "*"
 dvclive = "*"
+openpyxl = "*"
 
 [dev-packages]
 jupyterlab = "*"

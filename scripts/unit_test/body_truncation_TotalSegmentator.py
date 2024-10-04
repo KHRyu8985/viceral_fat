@@ -1,29 +1,20 @@
-import autorootcwd
+import autorootcwd # project-폴더의 위치를 파악하는 라이브러리
 import multiprocessing
 from totalsegmentator.python_api import totalsegmentator
 import shutil
 import os
 import logging
 
-
 def main():
-    # 로깅 설정
-    ct_path = "data/KU-PET-CT/00293921/CT.nii.gz"  # 입력 CT 파일 경로
+    ct_path = "data/KU-PET-CT/00293921/CT.nii.gz"  # 입력 CT 파일 경로 
     results_dir = "results/test_totalsegmentator"  # 결과 디렉토리 경로
     # 결과 디렉토리가 존재하지 않으면 생성
     os.makedirs(results_dir, exist_ok=True)
 
-    logging.basicConfig(
+    logging.basicConfig(filename=os.path.join(results_dir, "logs.log"),
         level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
     )
     # 결과 디렉토리에 로그 파일 설정
-    log_file = os.path.join(results_dir, "logs.log")
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setLevel(logging.INFO)
-    file_handler.setFormatter(
-        logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    )
-    logging.getLogger().addHandler(file_handler)
     
     logging.info("TotalSegmentator 신체 분할 테스트 시작")
     logging.info(
